@@ -6,3 +6,4 @@ class Reserva(models.Model):
     material = models.TextField(max_length=255)
     data = models.DateField(null=False)
     sala = models.TextField(max_length=100)
+ 

@@ -1,20 +1,19 @@
-    {% extends 'reservas/base.html' %}
-    {% block conteudo %}
+{% extends 'reservas/base.html' %}
+{% block conteudo %}
 
-    <form action="{% url 'listagem_reservas' %}" method="post">
-        {% csrf_token %}
+<form action="{% url 'listagem_reservas' %}" method="post">
+    {% csrf_token %}
 
-        <div style="text-align: center;" class="container">
-            <h1>Reservas Material T.I</h1>
-            Professor(a) <input name="nome" class="form-control-sm" type="text">
-            Material <input name="material" class="form-control-sm" type="text">
-            Data <input name="data" class="form-control-sm" type="date">
-            Sala <input name="sala" class="form-control-sm" type="text">
-            <button class="form-control-sm">Agendar</button>
-    
-          </div>
+    <div style="text-align: center;" class="container">
+        <h1>Reservas Material T.I</h1>
+        Professor(a) <input name="nome" class="form-control-sm" type="text">
+        Material <input name="material" class="form-control-sm" type="text">
+        Data <input name="data" class="form-control-sm" type="date">
+        Sala <input name="sala" class="form-control-sm" type="text">
+        <button class="form-control-sm">Agendar</button>
+
+    </div>
 
 
-      </form>
-      {% endblock %}
-   
+</form>
+{% endblock %}

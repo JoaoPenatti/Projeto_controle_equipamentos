@@ -1,9 +1,11 @@
 {% extends 'reservas/base.html' %}
-    {% block conteudo %}
+{% block conteudo %}
 <div class="container">
     <h1>Reservas Agendadas:</h1>
     <table class="table table-bordered table-striped">
+
         <tr>
+
             <th>id</th>
             <th>nome</th>
             <th>material</th>
@@ -16,7 +18,9 @@
             <td>{{reserva.nome}}</td>
             <td>{{reserva.material}}</td>
             <td>{{reserva.data}}</td>
-            <td>{{reserva.sala}}</td>
+            <td>{{reserva.sala}} <a href="{% url 'editar' reserva.id_reserva %}">Editar</a> <a
+                    href="{% url 'delete' reserva.id_reserva %}">Excluir</a></td>
+
         </tr>
         {% endfor %}
     </table>

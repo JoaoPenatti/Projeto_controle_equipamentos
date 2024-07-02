@@ -1,0 +1,20 @@
+{% extends 'reservas/base.html' %}
+{% block conteudo %}
+
+<form action="{% url 'update' reserva.id_reserva %}" method="post">
+    {% csrf_token %}
+
+    <div style="text-align: center;" class="container">
+        <h1>Alteração de Reservas Material T.I</h1>
+        Professor(a) <input name="nome" class="form-control-sm" type="text" value="{{reserva.nome}}">
+        Material <input name="material" class="form-control-sm" type="text" value="{{reserva.material}}">
+        Data <input name="data" class="form-control-sm" type="date" value="{{reserva.data}}">
+        Sala <input name="sala" class="form-control-sm" type="text" value="{{reserva.sala}}">
+        <button class="form-control-sm">Alterar</button>
+
+    </div>
+
+
+</form>
+
+{% endblock %}
