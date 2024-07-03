@@ -64,7 +64,7 @@ def exportar_para_excel(request):
 
     # Escreve os dados do banco de dados na planilha
     for obj in Reserva.objects.all():
-        sheet.append([obj.nome, obj.material, obj.data, obj.sala])  # Altere conforme seus campos
+        sheet.append([obj.nome, obj.material, obj.data, obj.sala])  
 
     # Define a resposta HTTP
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
