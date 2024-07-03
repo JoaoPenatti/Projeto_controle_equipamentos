@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
+from django.http import HttpResponse
 from .models import Reserva
+import openpyxl
 
 def home(request):
     return render(request,'reservas/home.html')
@@ -50,4 +52,24 @@ def delete(request, id_reserva):
     reserva = Reserva.objects.get(id_reserva=id_reserva)
     reserva.delete()
     return redirect(home)
+
+def exportar_para_excel(request):
+    # Cria um workbook e uma planilha
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    
+    # Escreve o cabeçalho da tabela
+    headers = ['Professor(a)', 'Material', 'Data', 'Sala']  # Altere conforme suas colunas
+    sheet.append(headers)
+
+    # Escreve os dados do banco de dados na planilha
+    for obj in Reserva.objects.all():
+        sheet.append([obj.nome, obj.material, obj.data, obj.sala])  # Altere conforme seus campos
+
+    # Define a resposta HTTP
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=tabelacontroleTI.xlsx'
+    workbook.save(response)
+
+    return response
     

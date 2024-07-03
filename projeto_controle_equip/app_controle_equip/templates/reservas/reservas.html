@@ -25,5 +25,9 @@
         {% endfor %}
     </table>
 
+    <form action="{% url 'exportar_excel' %}" method="get">
+        <button style="background-color: green;box-decoration-break: slice;" type="submit">Exportar para Excel</button>
+    </form>
+
 </div>
 {% endblock %}

@@ -14,4 +14,6 @@ urlpatterns = [
    path('update/<int:id_reserva>',views.update,name='update'),
    
    path('delete/<int:id_reserva>',views.delete,name='delete'),
+
+   path('exportar_excel/', views.exportar_para_excel, name='exportar_excel'),
 ]
